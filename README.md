@@ -2,25 +2,32 @@
 
 A full-stack web application for tracking data center equipment commissioning inspections at BAH cluster sites (BAH52, BAH53, BAH54).
 
-## Features
+## 🚀 Features
 
-- ✅ User authentication (email-based login)
-- ✅ Inspection submission form with validation
-- ✅ Records dashboard with filters (Site, Phase, Status)
-- ✅ CSV export for reporting
-- ✅ Dark professional theme
-- ✅ Real-time data sync via AWS Amplify
+- ✅ **User Authentication** — Email-based login with AWS Cognito
+- ✅ **Inspection Submission Form** — Structured data entry with validation
+- ✅ **Records Dashboard** — View and filter past inspections by Site, Phase, and Status
+- ✅ **CSV Export** — Download filtered inspection records for reporting
+- ✅ **Dark Professional Theme** — Optimized for data center operations
+- ✅ **Real-time Data Sync** — Powered by AWS Amplify GraphQL API and DynamoDB
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Frontend**: React 18
-- **Backend**: AWS Amplify (GraphQL API, DynamoDB, Cognito Auth)
+- **Backend**: AWS Amplify (GraphQL API, DynamoDB, Cognito Authentication)
 - **Styling**: Custom CSS (dark theme)
 - **Hosting**: AWS Amplify Hosting
 
-## Setup Instructions
+## 📋 Prerequisites
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ayessien/inspection-app.git
-   cd inspection-app
+- Node.js 18+ and npm
+- AWS Account
+- Amplify CLI installed globally: `npm install -g @aws-amplify/cli`
+
+## 🔧 Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/ayessien/inspection-app.git
+cd inspection-app
