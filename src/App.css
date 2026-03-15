@@ -1,0 +1,340 @@
+
+/* ===== Global Reset & Base ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0d1117;
+  color: #e6edf3;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* ===== App Header ===== */
+.app-header {
+  background: linear-gradient(135deg, #161b22, #1f2937);
+  border-bottom: 2px solid #00d4aa;
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  color: #00d4aa;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.app-header p {
+  color: #8b949e;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* ===== Form Card ===== */
+.form-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 4px 24px rgba(0, 212, 170, 0.08);
+}
+
+.form-card h2 {
+  color: #00d4aa;
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 12px;
+}
+
+/* ===== Form Grid Layout ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+/* ===== Labels ===== */
+label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Inputs, Selects, Textareas ===== */
+input,
+select,
+textarea {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e6edf3;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #00d4aa;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15);
+}
+
+select option {
+  background: #161b22;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ===== Status Badge Colors ===== */
+select[name="status"] option[value="Pass"]    { color: #3fb950; }
+select[name="status"] option[value="Fail"]    { color: #f85149; }
+select[name="status"] option[value="Pending"] { color: #d29922; }
+
+/* ===== Submit Button ===== */
+.submit-btn {
+  background: #00d4aa;
+  border: none;
+  border-radius: 6px;
+  color: #0d1117;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 24px;
+  padding: 12px 32px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.2s, transform 0.1s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: #00b894;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ===== Success Message ===== */
+.success-msg {
+  background: rgba(63, 185, 80, 0.1);
+  border: 1px solid #3fb950;
+  border-radius: 6px;
+  color: #3fb950;
+  margin-top: 16px;
+  padding: 12px;
+  text-align: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-card {
+    margin: 20px 16px;
+    padding: 20px;
+  }
+}
+/* ===== Filter Bar ===== */
+.filter-bar {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter-bar .form-group {
+  flex: 1;
+  min-width: 140px;
+}
+
+.refresh-btn {
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e6edf3;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 10px 16px;
+  transition: border-color 0.2s;
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
+.refresh-btn:hover {
+  border-color: #00d4aa;
+  color: #00d4aa;
+}
+
+/* ===== Summary Badges ===== */
+.summary-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 14px;
+}
+
+.badge-total  { background: #21262d; color: #e6edf3; border: 1px solid #30363d; }
+.badge-pass   { background: rgba(63,185,80,0.1); color: #3fb950; border: 1px solid #3fb950; }
+.badge-fail   { background: rgba(248,81,73,0.1); color: #f85149; border: 1px solid #f85149; }
+.badge-pending{ background: rgba(210,153,34,0.1); color: #d29922; border: 1px solid #d29922; }
+
+/* ===== Table ===== */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.inspection-table {
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  width: 100%;
+}
+
+.inspection-table th {
+  background: #21262d;
+  border-bottom: 2px solid #30363d;
+  color: #8b949e;
+  font-size: 0.75rem;
+  padding: 10px 12px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.inspection-table td {
+  border-bottom: 1px solid #21262d;
+  color: #e6edf3;
+  padding: 10px 12px;
+  vertical-align: top;
+}
+
+.inspection-table tr:hover td {
+  background: #161b22;
+}
+
+.status-badge {
+  border: 1px solid;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 10px;
+}
+
+.notes-cell {
+  color: #8b949e;
+  font-size: 0.85rem;
+  max-width: 200px;
+}
+
+.loading-msg {
+  color: #8b949e;
+  padding: 20px 0;
+  text-align: center;
+}
+/* ===== Tab Navigation ===== */
+.tab-bar {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #8b949e;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 8px 20px;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  border-color: #00d4aa;
+  color: #00d4aa;
+}
+
+.tab-btn.active {
+  background: #00d4aa;
+  border-color: #00d4aa;
+  color: #0d1117;
+  font-weight: 700;
+}
+/* ===== User Bar (top right) ===== */
+.user-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.user-info {
+  color: #8b949e;
+  font-size: 0.85rem;
+}
+
+.signout-btn {
+  background: transparent;
+  border: 1px solid #f85149;
+  border-radius: 6px;
+  color: #f85149;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  transition: all 0.2s;
+}
+
+.signout-btn:hover {
+  background: rgba(248, 81, 73, 0.1);
+}
+
+/* ===== Amplify Authenticator Theme Override ===== */
+[data-amplify-authenticator] {
+  --amplify-colors-brand-primary-60: #00d4aa;
+  --amplify-colors-brand-primary-80: #00b894;
+  --amplify-colors-brand-primary-100: #009e7f;
+  --amplify-colors-background-primary: #0d1117;
+  --amplify-colors-background-secondary: #161b22;
+  --amplify-colors-font-primary: #e6edf3;
+  --amplify-colors-border-primary: #30363d;
+}
+
+
